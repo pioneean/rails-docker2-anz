@@ -9,7 +9,7 @@ jobs:
     working_directory: ~/rails-docker2-anz/src
     steps:
       - checkout:
-        path: ~/rails-docker2-anz
+          path: ~/rails-docker2-anz
       - ruby/install-deps
 
   test:
@@ -28,14 +28,14 @@ jobs:
     working_directory: ~/rails-docker2-anz/src
     steps:
       - checkout:
-        path: ~/rails-docker2-anz
+          path: ~/rails-docker2-anz
       - ruby/install-deps
       - run:
-        name: Database setup
-        command: bundle exec rails db:migrate
+          name: Database setup
+          command: bundle exec rails db:migrate
       - run:
-        name: test
-        command: bundle exec rake test 
+          name: test
+          command: bundle exec rake test 
     
 
 workflows:
@@ -44,5 +44,5 @@ workflows:
       jobs:
         - build
         - test:
-          requires:
-            - build
+            requires:
+              - build
